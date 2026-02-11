@@ -1,0 +1,49 @@
+<!-- Netflix-style profile selection screen -->
+<div class="profile-page">
+  <!-- Header -->
+  <header class="profile-header">
+    <h1 class="logo">MEMORIAS</h1>
+    <button class="logout-btn" (click)="logout()" aria-label="Cerrar sesión">
+      Salir
+    </button>
+  </header>
+
+  <!-- Profile selection area -->
+  <div class="profile-content">
+    <h2 class="profile-title">¿Quién está viendo?</h2>
+
+    <div class="profiles-grid">
+      <!-- Profile card -->
+      <button
+        class="profile-card"
+        (click)="enterDashboard()"
+        aria-label="Entrar como {{ profileName }}"
+      >
+        <div class="avatar-wrapper">
+          @if (!avatarError) {
+            <img
+              [src]="avatarPath"
+              [alt]="profileName"
+              class="avatar-img"
+              (error)="onAvatarError()"
+            />
+          } @else {
+            <!-- Fallback avatar with initial -->
+            <div class="avatar-fallback">
+              {{ profileName.charAt(0).toUpperCase() }}
+            </div>
+          }
+
+          <!-- Hover overlay -->
+          <div class="avatar-overlay">
+            <svg class="play-icon" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+
+        <span class="profile-name">{{ profileName }}</span>
+      </button>
+    </div>
+  </div>
+</div>

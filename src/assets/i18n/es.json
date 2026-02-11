@@ -1,0 +1,28 @@
+{
+  "LOGIN": {
+    "TITLE": "Inicia sesión",
+    "USERNAME": "Usuario",
+    "PASSWORD": "Contraseña",
+    "SUBMIT": "Iniciar sesión",
+    "ERROR": "Usuario o contraseña incorrectos"
+  },
+  "PROFILE": {
+    "WHO_WATCHES": "¿Quién está viendo?",
+    "GREETING": "Hola"
+  },
+  "DASHBOARD": {
+    "SEARCH": "Buscar",
+    "LOGOUT": "Cerrar sesión",
+    "MY_LIST": "Mi lista"
+  },
+  "CATEGORIES": {
+    "MEMORIES": "Nuestros Recuerdos",
+    "ADVENTURES": "Aventuras Juntos",
+    "VIDEOS": "Videos Especiales"
+  },
+  "COMMON": {
+    "PLAY": "Reproducir",
+    "CLOSE": "Cerrar",
+    "FULLSCREEN": "Pantalla completa"
+  }
+}

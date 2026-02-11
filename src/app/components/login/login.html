@@ -1,0 +1,71 @@
+<!-- Netflix-style login page -->
+<div class="login-page">
+  <!-- Header with logo -->
+  <header class="login-header">
+    <h1 class="logo">MEMORIAS</h1>
+  </header>
+
+  <!-- Login form card -->
+  <div class="login-card">
+    <h2 class="login-title">Inicia sesión</h2>
+
+    <form (ngSubmit)="onSubmit()" class="login-form">
+      <!-- Username field -->
+      <div class="input-group">
+        <input
+          type="text"
+          id="username"
+          [(ngModel)]="username"
+          name="username"
+          placeholder=" "
+          required
+          aria-label="Usuario"
+          autocomplete="username"
+        />
+        <label for="username">Usuario</label>
+      </div>
+
+      <!-- Password field -->
+      <div class="input-group">
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder=" "
+          required
+          aria-label="Contraseña"
+          autocomplete="current-password"
+        />
+        <label for="password">Contraseña</label>
+      </div>
+
+      <!-- Error message -->
+      @if (showError) {
+        <div class="error-message" role="alert">
+          Usuario o contraseña incorrectos.
+        </div>
+      }
+
+      <!-- Submit button -->
+      <button
+        type="submit"
+        class="login-btn"
+        [disabled]="isLoading || !username || !password"
+      >
+        @if (isLoading) {
+          <span class="spinner"></span>
+        } @else {
+          Iniciar sesión
+        }
+      </button>
+    </form>
+
+    <!-- Decorative text -->
+    <div class="login-footer">
+      <p class="footer-text">
+        Esta app es solo para nosotros 💕
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "LOGIN": {
+    "TITLE": "Sign In",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "SUBMIT": "Sign In",
+    "ERROR": "Incorrect username or password"
+  },
+  "PROFILE": {
+    "WHO_WATCHES": "Who's watching?",
+    "GREETING": "Hello"
+  },
+  "DASHBOARD": {
+    "SEARCH": "Search",
+    "LOGOUT": "Log out",
+    "MY_LIST": "My List"
+  },
+  "CATEGORIES": {
+    "MEMORIES": "Our Memories",
+    "ADVENTURES": "Adventures Together",
+    "VIDEOS": "Special Videos"
+  },
+  "COMMON": {
+    "PLAY": "Play",
+    "CLOSE": "Close",
+    "FULLSCREEN": "Fullscreen"
+  }
+}

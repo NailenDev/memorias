@@ -1,0 +1,28 @@
+{
+  "LOGIN": {
+    "TITLE": "Accedi",
+    "USERNAME": "Utente",
+    "PASSWORD": "Password",
+    "SUBMIT": "Accedi",
+    "ERROR": "Nome utente o password errati"
+  },
+  "PROFILE": {
+    "WHO_WATCHES": "Chi sta guardando?",
+    "GREETING": "Ciao"
+  },
+  "DASHBOARD": {
+    "SEARCH": "Cerca",
+    "LOGOUT": "Disconnettersi",
+    "MY_LIST": "La mia lista"
+  },
+  "CATEGORIES": {
+    "MEMORIES": "I Nostri Ricordi",
+    "ADVENTURES": "Avventure Insieme",
+    "VIDEOS": "Video Speciali"
+  },
+  "COMMON": {
+    "PLAY": "Riproduci",
+    "CLOSE": "Chiudi",
+    "FULLSCREEN": "Schermo intero"
+  }
+}

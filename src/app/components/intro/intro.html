@@ -1,0 +1,20 @@
+<!-- Fullscreen intro video with skip option -->
+<div class="intro-container" [class.fade-out]="fadeOut" (click)="skipIntro()">
+  <video
+    #introVideo
+    class="intro-video"
+    [src]="videoPath"
+    autoplay
+    muted
+    playsinline
+    aria-label="Intro video"
+  ></video>
+
+  <button
+    class="skip-btn"
+    (click)="skipIntro(); $event.stopPropagation()"
+    aria-label="Skip intro"
+  >
+    Omitir ›
+  </button>
+</div>

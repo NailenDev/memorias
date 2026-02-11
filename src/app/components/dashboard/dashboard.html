@@ -1,0 +1,126 @@
+<!-- Netflix-style dashboard with dynamic carousels -->
+<div class="dashboard">
+  <!-- Top navigation bar -->
+  <header class="navbar">
+    <div class="navbar-left">
+      <h1 class="logo">MEMORIAS</h1>
+    </div>
+    <div class="navbar-right">
+      <!-- Language selector -->
+      <div class="lang-selector">
+        @for (lang of languages; track lang) {
+          <button
+            class="lang-btn"
+            [class.active]="currentLang === lang"
+            (click)="switchLang(lang)"
+            [attr.aria-label]="'Cambiar idioma a ' + lang"
+          >
+            {{ lang | uppercase }}
+          </button>
+        }
+      </div>
+
+      <span class="profile-name">{{ profileName }}</span>
+      <button class="logout-btn" (click)="logout()" aria-label="Cerrar sesión">
+        {{ t('DASHBOARD.LOGOUT') }}
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero banner -->
+  <section class="hero" aria-label="Banner principal">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h2 class="hero-title">{{ t('DASHBOARD.MY_LIST') }}</h2>
+      <p class="hero-subtitle">Todos los momentos especiales juntos 💕</p>
+    </div>
+  </section>
+
+  <!-- Dynamic carousels from config -->
+  <main class="content">
+    @for (category of categories; track category.id) {
+      <section class="carousel-section">
+        <h3 class="section-title">{{ t(category.nameKey) }}</h3>
+
+        <div class="carousel-wrapper">
+          <!-- Left arrow -->
+          <button
+            class="carousel-arrow arrow-left"
+            (click)="scroll(carouselRow, 'left')"
+            aria-label="Desplazar izquierda"
+          >
+            ‹
+          </button>
+
+          <!-- Scrollable row -->
+          <div class="carousel-row" #carouselRow>
+            @for (item of category.items; track item) {
+              <!-- Photo card -->
+              @if (category.type === 'photos') {
+                <div class="card photo-card">
+                  <img
+                    [src]="item"
+                    [alt]="t(category.nameKey)"
+                    loading="lazy"
+                    (error)="onImageError($event)"
+                  />
+                </div>
+              }
+
+              <!-- Video card with thumbnail -->
+              @if (category.type === 'videos') {
+                <button
+                  class="card video-card"
+                  (click)="openVideo(item)"
+                  [attr.aria-label]="'Reproducir video'"
+                >
+                  <img
+                    class="video-thumb-img"
+                    [src]="getVideoThumb(item)"
+                    alt="Video thumbnail"
+                    (error)="onImageError($event)"
+                  />
+                  <div class="video-play-overlay">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </button>
+              }
+            }
+          </div>
+
+          <!-- Right arrow -->
+          <button
+            class="carousel-arrow arrow-right"
+            (click)="scroll(carouselRow, 'right')"
+            aria-label="Desplazar derecha"
+          >
+            ›
+          </button>
+        </div>
+      </section>
+    }
+  </main>
+</div>
+
+<!-- Video Modal -->
+@if (activeVideo) {
+  <div class="video-modal-overlay" (click)="closeVideo()">
+    <div class="video-modal" (click)="$event.stopPropagation()">
+      <button
+        class="modal-close"
+        (click)="closeVideo()"
+        aria-label="Cerrar video"
+      >
+        ✕
+      </button>
+      <video
+        [src]="activeVideo"
+        controls
+        autoplay
+        class="modal-video"
+      ></video>
+    </div>
+  </div>
+}
